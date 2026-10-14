@@ -1,0 +1,50 @@
+{
+  "required": true,
+  "minVersion": "0.8.7",
+  "package": "com.memplus.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "com.memplus.core.MemPlusMixinPlugin",
+  "refmap": "memplus.refmap.json",
+  "mixins": [
+    "blockstate.BlockStateBaseMixin",
+    "blockstate.StateDefinitionMixin",
+    "blockstate.MapLikeAccessorMixin",
+    "blockstate.EnumPropertyMixin",
+    "blockstate.StateHolderMixin",
+    "blockstate.BlockStateCacheMixin",
+    "nbt.CompoundTagMixin",
+    "nbt.ListTagMixin",
+    "nbt.StringTagMixin",
+    "nbt.NbtUtilsMixin",
+    "chunk.PalettedContainerMixin",
+    "chunk.ChunkSerializerMixin",
+    "registry.HolderReferenceMixin",
+    "registry.RegistryMixin",
+    "entity.EntityMixin",
+    "entity.EntityTrackerEntryMixin",
+    "entity.LevelEntityStorageMixin",
+    "resource.SpriteLoaderMixin",
+    "resource.TextureAtlasMixin",
+    "recipe.RecipeManagerMixin",
+    "advancement.AdvancementMixin",
+    "extras.ResourceLocationMixin",
+    "extras.TagKeyMixin",
+    "extras.BlockEntityMixin",
+    "extras.SoundEventMixin",
+    "extras.EnchantmentMixin",
+    "extras.MobEffectMixin",
+    "extras.PotionMixin",
+    "extras.BiomeMixin",
+    "extras.ParticleTypeMixin",
+    "extras.LootTableMixin",
+    "extras.ChunkPosMixin"
+  ],
+  "client": [
+    "client.BlockRendererMixin",
+    "client.SpriteAtlasResourceMixin",
+    "client.ModelDataManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

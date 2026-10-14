@@ -1,0 +1,40 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+issueTrackerURL = "https://example.com/memplus/issues"
+
+[[mods]]
+modId = "memplus"
+version = "2.2.0"
+displayName = "MemPlus: Memory+"
+authors = "MemPlus Team"
+description = '''
+Aggressive memory optimization mod for Minecraft 1.21.1 (NeoForge).
+
+Targets the dominant heap contributors identified from large-modpack heap dumps:
+ - BlockState and BlockBehaviour.BlockStateBase instances (the single biggest offender)
+ - Chunk section PalettedContainer storage
+ - CompoundTag / ListTag / StringTag strings and cached name lookups
+ - NeoForge registry holders, capability containers and attachment snapshots
+ - Entity tracker entries, persistent chunk tickets, sprite atlas backing maps
+ - Recipe book and advancement predicate caching
+ - Static string tables, advancement id strings, block / item translation keys
+
+Designed to beat FerriteCore on heap footprint while staying Mixin-only:
+no game logic is altered, no visual feature is removed, and every optimization
+is gated by a config option so users can dial it back per world if desired.
+'''
+
+[[dependencies.memplus]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.90,)"
+side = "BOTH"
+ordering = "NONE"
+
+[[dependencies.memplus]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+side = "BOTH"
+ordering = "NONE"
