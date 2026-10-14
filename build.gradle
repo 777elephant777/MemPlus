@@ -1,0 +1,70 @@
+plugins {
+    id 'eclipse'
+    id 'idea'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = '2.2.0'
+group = 'com.memplus'
+base {
+    archivesName = 'MemPlus-1.21.1'
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+neoForge {
+    validateAccessTransformers = false
+
+    // Use the new "skip decompilation" pipeline. This is much faster and
+    // avoids the Vineflower crashes we hit with the legacy decompile-then-recompile
+    // pipeline.
+    enable {
+        version = "21.1.252"
+        disableRecompilation = true
+    }
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabled.gameTestNamespaces', 'memplus'
+            programArguments = ['--username', 'Dev']
+        }
+        server {
+            server()
+            systemProperty 'neoforge.enabled.gameTestNamespaces', 'memplus'
+        }
+    }
+
+    mods {
+        memplus {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+    options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
+}
+
+jar {
+    manifest {
+        attributes([
+            'Specification-Title'     : 'MemPlus',
+            'Specification-Version'   : '1.2.0',
+            'Specification-Vendor'    : 'MemPlus Team',
+            'Implementation-Title'    : 'MemPlus',
+            'Implementation-Version' : '1.2.0',
+            'Implementation-Vendor'  : 'MemPlus Team',
+            'MixinConfigs'            : 'memplus.mixins.json',
+            'FMLModType'              : 'MOD'
+        ])
+    }
+}

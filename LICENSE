@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 DaElephantMan
+Copyright (c) 2026 MemPlus Team
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Acknowledgements:
+
+This project was inspired by FerriteCore (https://github.com/malte0811/FerriteCore)
+by malte0811. No code from FerriteCore was copied; MemPlus was written from
+scratch by reading vanilla Minecraft class signatures and writing Mixin
+classes that deduplicate strings and compact data structures.
+
+MemPlus and FerriteCore can run side-by-side without conflict; they
+complement each other rather than compete.
